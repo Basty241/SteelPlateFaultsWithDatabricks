@@ -43,10 +43,10 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 
 | Variable | Qué representa | Cómo se obtiene |
 | :--- | :--- | :--- |
-| `Empty_Index` | Fracción de espacio vacío dentro del rectángulo envolvente `[0, 1]`. | $1 - \frac{\text{Pixels\_Areas}}{\Delta X \cdot \Delta Y}$ |
+| `Empty_Index` | Fracción de espacio vacío dentro del rectángulo envolvente `[0, 1]`. | $1 - \frac{\text{Pixels Areas}}{\Delta X \cdot \Delta Y}$ |
 | `Square_Index` | Grado de simetría o compacidad del *bounding box*. | $\frac{\min(\Delta X, \Delta Y)}{\max(\Delta X, \Delta Y)}$ |
 | `Orientation_Index` | Índice de elongación o asimetría direccional (`1` vertical, `-1` horizontal). | $1 - \frac{\Delta X}{\Delta Y}$ (cuando $\Delta Y > \Delta X$) |
-| `LogOfAreas` | Magnitud superficial comprimida en escala logarítmica. | $\log_{10}(\text{Pixels\_Areas})$ |
+| `LogOfAreas` | Magnitud superficial comprimida en escala logarítmica. | $\log_{10}(\text{Pixels Areas})$ |
 | `Log_X_Index` / `Log_Y_Index` | Dimensiones netas del cuadro delimitador en escala logarítmica. | $\log_{10}(\Delta X)$ y $\log_{10}(\Delta Y)$ |
 | `SigmoidOfAreas` | Área del defecto normalizada no linealmente en `[0, 1]`. | Transformación sigmoide sobre el área escalada. |
 
@@ -54,11 +54,11 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 
 | Variable | Qué representa | Cómo se obtiene |
 | :--- | :--- | :--- |
-| `Outside_X_Index` | Fracción del ancho total de inspección transversal ocupada por el defecto `[0, 1]`. | $\frac{\Delta X}{\text{Length\_of\_Conveyer}}$ |
+| `Outside_X_Index` | Fracción del ancho total de inspección transversal ocupada por el defecto `[0, 1]`. | $\frac{\Delta X}{\text{Length of Conveyer}}$ |
 | `Outside_Global_Index` | Clasificador discreto ternario `{0; 0.5; 1}` de dominancia axial. | `0` si $\Delta X > \Delta Y$; `0.5` si $\Delta X = \Delta Y$; `1` si $\Delta Y > \Delta X$. |
 | `Edges_Index` | Proximidad relativa del defecto hacia los márgenes de la placa (`0` = cerca del borde). | Distancia normalizada entre la posición transversal y los límites laterales. |
-| `Edges_X_Index` | Relación entre ancho neto del *bounding box* y proyección horizontal del perímetro `[0, 1]`. | $\frac{\Delta X}{\text{X\_Perimeter}}$ |
-| `Edges_Y_Index` | Relación entre altura neta del *bounding box* y proyección vertical del perímetro `[0, 1]`. | $\frac{\Delta Y}{\text{Y\_Perimeter}}$ |
+| `Edges_X_Index` | Relación entre ancho neto del *bounding box* y proyección horizontal del perímetro `[0, 1]`. | $\frac{\Delta X}{\text{X Perimeter}}$ |
+| `Edges_Y_Index` | Relación entre altura neta del *bounding box* y proyección vertical del perímetro `[0, 1]`. | $\frac{\Delta Y}{\text{Y Perimeter}}$ |
 
 ### Tabla 4: Características de luminosidad
 
@@ -67,7 +67,7 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 | `Sum_of_Luminosity` | Energía lumínica integrada dentro de la superficie del defecto. | $\sum_{i=1}^{A} I_i$ (suma de intensidad de grises). |
 | `Minimum_of_Luminosity` | Punto más oscuro o de mayor absorción lumínica. | $\min(I_i)$ |
 | `Maximum_of_Luminosity` | Punto más brillante del defecto. | $\max(I_i)$ |
-| `Luminosity_Index` | Contraste relativo normalizado de intensidad promedio frente a referencia `[-1, 1]`. | $\frac{\text{Sum\_of\_Luminosity} / \text{Pixels\_Areas}}{128} - 1$ |
+| `Luminosity_Index` | Contraste relativo normalizado de intensidad promedio frente a referencia `[-1, 1]`. | $\frac{\text{Sum of Luminosity} / \text{Pixels Areas}}{128} - 1$ |
 
 ---
 
