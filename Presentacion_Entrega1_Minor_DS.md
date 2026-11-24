@@ -15,6 +15,8 @@ La base de datos contiene **1.941 observaciones** de diferentes defectos superfi
 
 El conjunto de datos permite analizar cómo las distintas fallas se describen mediante índices normalizados de tamaño, forma y luminosidad, caracterizando con estadística descriptiva qué índices presentan mayor correlación con cada tipo de falla y en qué rangos de magnitud se manifiestan.
 
+![Line Scan Camera vs Area Scan Camera](./assets/image4.png)
+
 ---
 
 ## Variables del Dataset
@@ -28,6 +30,8 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 - `Bumps` (abolladuras y protuberancias elevadas)
 - `Other_Faults` (otras fallas)
 
+![Fig. 1. Tipos de fallas en placas de acero laminado en frío](./assets/image6.png)
+
 ### Tabla 1: Características geométricas y operativas (Variables independientes)
 
 | Variable | Qué representa | Cómo se obtiene |
@@ -38,6 +42,8 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 | `X_Perimeter` / `Y_Perimeter` | Proyección horizontal y vertical del contorno cerrado del defecto `[px]`. | Suma de desplazamientos unitarios horizontales y verticales al recorrer el perímetro. |
 | `Length_of_Conveyer` | Ancho total de referencia de la cinta transportadora o campo transversal `[px]`. | Parámetro físico de calibración de la cámara *line-scan* en el eje X. |
 | `Steel_Plate_Thickness` | Espesor nominal de la placa `[mm]`. | Dato operativo del proceso registrado. |
+
+![Diagrama de variables geométricas y bounding box](./assets/image5.png)
 
 ### Tabla 2: Índices de forma y escalamiento
 
@@ -50,6 +56,8 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 | `Log_X_Index` / `Log_Y_Index` | Dimensiones netas del cuadro delimitador en escala logarítmica. | $\log_{10}(\Delta X)$ y $\log_{10}(\Delta Y)$ |
 | `SigmoidOfAreas` | Área del defecto normalizada no linealmente en `[0, 1]`. | Transformación sigmoide sobre el área escalada. |
 
+![Métricas de forma y geometría](./assets/image11.png)
+
 ### Tabla 3: Índices de posición y bordes
 
 | Variable | Qué representa | Cómo se obtiene |
@@ -60,6 +68,8 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 | `Edges_X_Index` | Relación entre ancho neto del *bounding box* y proyección horizontal del perímetro `[0, 1]`. | $\frac{\Delta X}{\text{X Perimeter}}$ |
 | `Edges_Y_Index` | Relación entre altura neta del *bounding box* y proyección vertical del perímetro `[0, 1]`. | $\frac{\Delta Y}{\text{Y Perimeter}}$ |
 
+![Índices de posición y bordes](./assets/image17.png)
+
 ### Tabla 4: Características de luminosidad
 
 | Variable | Qué representa | Cómo se obtiene |
@@ -69,11 +79,15 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 | `Maximum_of_Luminosity` | Punto más brillante del defecto. | $\max(I_i)$ |
 | `Luminosity_Index` | Contraste relativo normalizado de intensidad promedio frente a referencia `[-1, 1]`. | $\frac{\text{Sum of Luminosity} / \text{Pixels Areas}}{128} - 1$ |
 
+![Análisis de luminosidad en placa de acero](./assets/image21.png)
+
 ---
 
 ## Contexto del problema
 
 En control de calidad de acero es crítico identificar las fallas con mayor probabilidad de provocar fractura. Las fallas con pérdida de material y geometría angular generan concentradores de esfuerzos elevados que pueden inducir quiebres tempranos y reducir la vida útil del material. Por ello, **las fallas prioritarias son `K_Scratch` (rayas profundas) y `Z_Scratch` (rasguños superficiales en zig-zag)**.
+
+![Fig. 2. Concentración de esfuerzos en 90° en una probeta de metal](./assets/image22.png)
 
 ---
 
