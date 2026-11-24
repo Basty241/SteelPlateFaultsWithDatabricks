@@ -16,6 +16,7 @@ La base de datos contiene **1.941 observaciones** de diferentes defectos superfi
 El conjunto de datos permite analizar cómo las distintas fallas se describen mediante índices normalizados de tamaño, forma y luminosidad, caracterizando con estadística descriptiva qué índices presentan mayor correlación con cada tipo de falla y en qué rangos de magnitud se manifiestan.
 
 ![Line Scan Camera vs Area Scan Camera](./assets/image4.png)
+*Fuente: Adaptado de documentación técnica de visión artificial industrial (Keyence Corporation).*
 
 ---
 
@@ -31,6 +32,7 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 - `Other_Faults` (otras fallas)
 
 ![Fig. 1. Tipos de fallas en placas de acero laminado en frío](./assets/image6.png)
+*Fuente: Elaboración propia mediante generación de imágenes con Gemini (Google).*
 
 ### Tabla 1: Características geométricas y operativas (Variables independientes)
 
@@ -44,6 +46,7 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 | `Steel_Plate_Thickness` | Espesor nominal de la placa `[mm]`. | Dato operativo del proceso registrado. |
 
 ![Diagrama de variables geométricas y bounding box](./assets/image5.png)
+*Fuente: Elaboración propia mediante generación de imágenes con Gemini (Google).*
 
 ### Tabla 2: Índices de forma y escalamiento
 
@@ -57,6 +60,7 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 | `SigmoidOfAreas` | Área del defecto normalizada no linealmente en `[0, 1]`. | Transformación sigmoide sobre el área escalada. |
 
 ![Métricas de forma y geometría](./assets/image11.png)
+*Fuente: Elaboración propia mediante generación de imágenes con Gemini (Google).*
 
 ### Tabla 3: Índices de posición y bordes
 
@@ -69,6 +73,7 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 | `Edges_Y_Index` | Relación entre altura neta del *bounding box* y proyección vertical del perímetro `[0, 1]`. | $\frac{\Delta Y}{\text{Y Perimeter}}$ |
 
 ![Índices de posición y bordes](./assets/image17.png)
+*Fuente: Elaboración propia mediante generación de imágenes con Gemini (Google).*
 
 ### Tabla 4: Características de luminosidad
 
@@ -80,6 +85,7 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 | `Luminosity_Index` | Contraste relativo normalizado de intensidad promedio frente a referencia `[-1, 1]`. | $\frac{\text{Sum of Luminosity} / \text{Pixels Areas}}{128} - 1$ |
 
 ![Análisis de luminosidad en placa de acero](./assets/image21.png)
+*Fuente: Elaboración propia mediante generación de imágenes con Gemini (Google).*
 
 ---
 
@@ -88,6 +94,7 @@ El conjunto de datos permite analizar cómo las distintas fallas se describen me
 En control de calidad de acero es crítico identificar las fallas con mayor probabilidad de provocar fractura. Las fallas con pérdida de material y geometría angular generan concentradores de esfuerzos elevados que pueden inducir quiebres tempranos y reducir la vida útil del material. Por ello, **las fallas prioritarias son `K_Scratch` (rayas profundas) y `Z_Scratch` (rasguños superficiales en zig-zag)**.
 
 ![Fig. 2. Concentración de esfuerzos en 90° en una probeta de metal](./assets/image22.png)
+*Fuente: Análisis por Elementos Finitos (FEA) de singularidad de esfuerzos en esquina reentrante (FEA Solutions).*
 
 ---
 
@@ -116,3 +123,5 @@ En control de calidad de acero es crítico identificar las fallas con mayor prob
 - Gonzalez, R. C., & Woods, R. E. (2018). *Digital Image Processing* (4th ed.). Pearson.
 - Neogi, N., Mohanta, D. K., & Dutta, P. K. (2014). *Review of vision-based steel surface inspection systems*. EURASIP Journal on Image and Video Processing, 2014(1), Artículo 50. https://doi.org/10.1186/1687-5281-2014-50
 - UCI Machine Learning Repository (2010). *Steel Plates Faults Data Set* (ID: 198). Semeion Research Center of Sciences of Communication, Rome, Italy.
+- Keyence Corporation. *Line Scan Camera vs. Area Scan Camera — Machine Vision Basics*. https://www.keyence.com/
+- FEA Solutions. *Stress Singularities and Sharp Re-entrant Corners in Finite Element Analysis*. https://www.fea-solutions.co.uk/
